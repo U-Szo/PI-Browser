@@ -233,6 +233,10 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     my_app_id = 'PI Browser'
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(my_app_id)
+    font_id = QtGui.QFontDatabase.addApplicationFont("fonts/Alice-Regular.ttf")
+    _fontstr = QtGui.QFontDatabase.applicationFontFamilies(font_id)[0]
+    _font = QtGui.QFont(_fontstr, 10)
+    app.setFont(_font)
     main_browser_window = MainBrowserWindow()
     main_browser_window.show()
     sys.exit(app.exec_())
